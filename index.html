@@ -7,6 +7,13 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    
+    <link href='css/styles.css' rel='stylesheet' />
+
+
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,109 +21,9 @@
         href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;1,300;1,400&family=Chivo+Mono:wght@600&display=swap"
         rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-
-        #console {
-            position: absolute;
-            width: 300px;
-            height: 200px;
-            margin-bottom: 10px;
-            padding: 10px 20px;
-            background-color: rgba(0, 98, 28, 0.6);
-            border-radius: 5px;
-            border-width: 5px;
-        }
-
-        h1 {
-            margin-bottom: 0;
-            color: rgb(225, 0, 0);
-            font-size: 25px;
-            line-height: 30px;
-            font-family: "Alegreya Sans", sans-serif;
-        }
-
-        p {
-            color: rgb(181, 181, 181);
-            font-size: 20px;
-            line-height: 20px;
-            width: 280px;
-            font-family: "Alegreya Sans", sans-serif;
-        }
-
-        .container {
-            margin-top: 150px;
-            display: flex;
-            max-width: 30px;
-            flex-wrap: wrap;
-        }
-
-        .image-button {
-            touch-action: manipulation;
-            cursor: pointer;
-            display: block;
-
-            /* position: absolute; */
-            width: 300px;
-            height: 200px;
-            /* margin-bottom: 10px; */
-            /* padding: 10px 20px; */
-            /* display: inline-block;  */
-            /* will have default margin */
-
-            background-color: transparent;
-            border: none;
-        }
-
-
-        .my-legend {
-            width: auto;
-            color: rgb(255, 255, 255);
-        }
-
-        .my-legend .legend-scale ol {
-            margin-left: 15px;
-            width: auto;
-            padding: 0;
-            float: left;
-        }
-
-        .my-legend .legend-scale ol li {
-            width: 150px;
-            font-size: 13px;
-            list-style: none;
-            line-height: 18px;
-            width: 280px;
-            font-family: "Alegreya Sans", sans-serif;
-            list-style-type: upper-roman;
-
-        }
-
-        .my-legend .legend-labels li span {
-            display: block;
-            float: left;
-            height: 16px;
-            /* width: 30px; */
-            border-radius: 2px;
-            margin-right: 10px;
-            margin-left: 0;
-            width: 280px;
-        }
-    </style>
 </head>
 
 <body>
-    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 
     <div id="map"></div>
 
@@ -144,151 +51,19 @@
             Duration: 4-5 days
             Level: moderate</p>
         </ul> -->
-    </div>
-                <div class="container">
-                    <button class="image-button" role="button"><img src="./inca1.jpeg" height="180" width="330"></button>
-                    <button class="image-button" role="button"><img src="./inca2.jpeg" height="180" width="330"></button>
-                    <button class="image-button" role="button"><img src="./inca4.jpeg" height="180" width="330"></button>
-                    <button class="image-button" role="button"><img src="./inca3.jpeg" height="180" width="330"></button>
-                    <button class="image-button" role="button"><img src="./ff.png" height="80" width="100"></button>
-                    <button class="image-button" role="button"><img src="./ff.png" height="80" width="100"></button>
-                </div>
-            
+            </div>
+            <div class="container">
+                <button class="image-button" role="button"><img src="./inca1.jpeg" height="180" width="330"></button>
+                <button class="image-button" role="button"><img src="./inca2.jpeg" height="180" width="330"></button>
+                <button class="image-button" role="button"><img src="./inca4.jpeg" height="180" width="330"></button>
+                <!-- <button class="image-button" role="button"><img src="./inca3.jpeg" height="180" width="330"></button> -->
+                <!-- <button class="image-button" role="button"><img src="./ff.png" height="80" width="100"></button>
+                <button class="image-button" role="button"><img src="./ff.png" height="80" width="100"></button> -->
+            </div>
 
-            <script>
-                // TO MAKE THE MAP APPEAR YOU MUST
-                // ADD YOUR ACCESS TOKEN FROM
-                // https://account.mapbox.com
-                mapboxgl.accessToken = 'pk.eyJ1IjoiYmVja3l5eXl5IiwiYSI6ImNsZWV2azM0bTBiN2k0NG12cnEybml0am0ifQ.pTk0bhJgKynBeJMf1r8N3A';
-                (async () => {
-                    const map = new mapboxgl.Map({
-                        container: 'map',
-                        zoom: 12,
-                        center: [-72.5321352325657, -13.206251914598985],
-                        pitch: 16,
-                        bearing: 150,
-                        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-                        style: 'mapbox://styles/mapbox/satellite-streets-v12',
-                        interactive: false,
-                        hash: false
-                    });
+            <script src='js/scripts.js'></script>
 
-                    // Start downloading the route data, and wait for map load to occur in parallel
-                    const [pinRouteGeojson] = await Promise.all([
-                        fetch(
-                            './trail.geojson'
-                        ).then((response) => response.json()),
-                        map.once('style.load')
-                    ]);
 
-                    // Set custom fog
-                    map.setFog({
-                        'range': [-0.5, 2],
-                        'color': '#def',
-                        'high-color': '#def',
-                        'space-color': '#def'
-                    });
-
-                    // Add terrain source, with slight exaggeration
-                    map.addSource('mapbox-dem', {
-                        'type': 'raster-dem',
-                        'url': 'mapbox://mapbox.terrain-rgb',
-                        'tileSize': 512,
-                        'maxzoom': 14
-                    });
-                    map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
-
-                    const pinRoute = pinRouteGeojson.features[0].geometry.coordinates;
-                    // Create the marker and popup that will display the elevation queries
-                    const popup = new mapboxgl.Popup({ closeButton: false });
-                    const marker = new mapboxgl.Marker({
-                        color: 'red',
-                        scale: 0.8,
-                        draggable: false,
-                        pitchAlignment: 'auto',
-                        rotationAlignment: 'auto'
-                    })
-                        .setLngLat(pinRoute[0])
-                        .setPopup(popup)
-                        .addTo(map)
-                        .togglePopup();
-
-                    // Add a line feature and layer. This feature will get updated as we progress the animation
-                    map.addSource('line', {
-                        type: 'geojson',
-                        // Line metrics is required to use the 'line-progress' property
-                        lineMetrics: true,
-                        data: pinRouteGeojson
-                    });
-                    map.addLayer({
-                        type: 'line',
-                        source: 'line',
-                        id: 'line',
-                        paint: {
-                            'line-color': 'rgba(0,0,0,0)',
-                            'line-width': 5
-                        },
-                        layout: {
-                            'line-cap': 'round',
-                            'line-join': 'round'
-                        }
-                    });
-
-                    await map.once('idle');
-                    // The total animation duration, in milliseconds
-                    const animationDuration = 20000;
-                    // Use the https://turfjs.org/ library to calculate line distances and
-                    // sample the line at a given percentage with the turf.along function.
-                    const path = turf.lineString(pinRoute);
-                    // Get the total line distance
-                    const pathDistance = turf.lineDistance(path);
-                    let start;
-                    function frame(time) {
-                        if (!start) start = time;
-                        const animationPhase = (time - start) / animationDuration;
-                        if (animationPhase > 1) {
-                            return;
-                        }
-
-                        // Get the new latitude and longitude by sampling along the path
-                        const alongPath = turf.along(path, pathDistance * animationPhase)
-                            .geometry.coordinates;
-                        const lngLat = {
-                            lng: alongPath[0],
-                            lat: alongPath[1]
-                        };
-
-                        // Sample the terrain elevation. We round to an integer value to
-                        // prevent showing a lot of digits during the animation
-                        const elevation = Math.floor(
-                            // Do not use terrain exaggeration to get actual meter values
-                            map.queryTerrainElevation(lngLat, { exaggerated: false })
-                        );
-
-                        // Update the popup altitude value and marker location
-                        popup.setHTML('Altitude: ' + elevation + 'm<br/>');
-                        marker.setLngLat(lngLat);
-
-                        // Reduce the visible length of the line by using a line-gradient to cutoff the line
-                        // animationPhase is a value between 0 and 1 that reprents the progress of the animation
-                        map.setPaintProperty('line', 'line-gradient', [
-                            'step',
-                            ['line-progress'],
-                            'red',
-                            animationPhase,
-                            'rgba(255, 0, 0, 0)'
-                        ]);
-
-                        // Rotate the camera at a slightly lower speed to give some parallax effect in the background
-                        const rotation = 150 - animationPhase * 40.0;
-                        map.setBearing(rotation % 360);
-
-                        window.requestAnimationFrame(frame);
-                    }
-
-                    window.requestAnimationFrame(frame);
-                })();
-            </script>
 
 </body>
 
