@@ -6,6 +6,8 @@ The map shows the estimated <ins>treking route</ins> and <ins>relative altitude<
 3. Duration: 4-5 days
 4. Level: moderate
 
+Referencing from [https://incatrail.vacations/3dtour/]
+(hi) [https://incatrail.vacations/3dtour/  ] 
 
 
 ![ezgif com-video-to-gif-4](https://user-images.githubusercontent.com/112721395/234959557-c7935ca0-72d5-483f-b299-71ca4f57b6b6.gif)![inca1](https://user-images.githubusercontent.com/112721395/234958606-5d3a1cf9-23d3-4778-b19a-f1f5a4bee828.jpeg)
