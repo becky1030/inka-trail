@@ -7,8 +7,8 @@ The map shows the estimated <ins>treking route</ins> and <ins>relative altitude<
 4. Level: moderate
 
 
-https://user-images.githubusercontent.com/112721395/234958484-aacdbae6-0812-4f82-8ca7-2a618766170e.mov
 
+![ezgif com-video-to-gif-3](https://user-images.githubusercontent.com/112721395/234959367-56d5dcbb-14e9-437a-94cc-ae80556365fb.gif)
 ![inca1](https://user-images.githubusercontent.com/112721395/234958606-5d3a1cf9-23d3-4778-b19a-f1f5a4bee828.jpeg)
 ![inca2](https://user-images.githubusercontent.com/112721395/234958610-243c0df1-4a56-47c6-8c31-75596754f02b.jpeg)
 ![inca3](https://user-images.githubusercontent.com/112721395/234958613-b0488130-bbb0-47df-9d73-976b77a4005b.jpeg)
