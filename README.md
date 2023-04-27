@@ -1,4 +1,4 @@
-# inka-trail***Camino Inca***
+# Camino Inca
 
 The map shows the estimated <ins>treking route</ins> and <ins>relative altitude</ins> of the <strong>Inca Trail, Peru</strong>.
 1. Best hike for modern-day explorers
